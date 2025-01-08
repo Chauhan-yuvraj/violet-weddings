@@ -1,0 +1,15 @@
+$border-radius-values: ();
+@for $i from 0 through 50 {
+  $border-radius-values: map-merge(
+    $border-radius-values,
+    (
+      $i: $i * 1px,
+    )
+  );
+}
+
+@each $key, $value in $border-radius-values {
+  .rounded-#{$key} {
+    border-radius: $value;
+  }
+}

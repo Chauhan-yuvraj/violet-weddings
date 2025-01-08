@@ -1,0 +1,38 @@
+$position-values: (
+  static: static,
+  relative: relative,
+  absolute: absolute,
+  fixed: fixed,
+  sticky: sticky,
+);
+
+@each $key, $value in $position-values {
+  .pos-#{$key} {
+    position: $value;
+  }
+}
+
+$offset-values: ();
+@for $i from 0 through 50 {
+  $offset-values: map-merge(
+    $offset-values,
+    (
+      $i: $i * 1px,
+    )
+  );
+}
+
+@each $key, $value in $offset-values {
+  .top-#{$key} {
+    top: $value;
+  }
+  .bottom-#{$key} {
+    bottom: $value;
+  }
+  .left-#{$key} {
+    left: $value;
+  }
+  .right-#{$key} {
+    right: $value;
+  }
+}

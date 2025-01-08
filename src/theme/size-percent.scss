@@ -1,0 +1,19 @@
+// Size Percent Values (percentage-based)
+$size-percent-value: ();
+@for $i from 0 through 100 {
+  $size-percent-value: map-merge(
+    $size-percent-value,
+    (
+      $i: $i * 1%,
+    )
+  );
+}
+
+@each $key, $value in $size-percent-value {
+  .hp-#{$key} {
+    height: $value;
+  }
+  .wp-#{$key} {
+    width: $value;
+  }
+}

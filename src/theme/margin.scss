@@ -1,0 +1,54 @@
+$margin-values: ();
+@for $i from 0 through 50 {
+  $margin-values: map-merge(
+    $margin-values,
+    (
+      $i: $i * 1rem,
+    )
+  );
+}
+
+@each $key, $value in $margin-values {
+  .m-#{$key} {
+    margin: $value;
+  }
+  .mt-#{$key} {
+    margin-top: $value;
+  }
+  .mb-#{$key} {
+    margin-bottom: $value;
+  }
+  .ml-#{$key} {
+    margin-left: $value;
+  }
+  .mr-#{$key} {
+    margin-right: $value;
+  }
+  .mx-#{$key} {
+    margin-inline: $value;
+  }
+  .my-#{$key} {
+    margin-block: $value;
+  }
+  .ma {
+    margin: auto;
+  }
+  .mt-auto {
+    margin-top: auto;
+  }
+  .mb-auto {
+    margin-bottom: auto;
+  }
+  .ml-auto {
+    margin-left: auto;
+  }
+  .mr-auto {
+    margin-right: auto;
+  }
+  .mx-auto {
+    margin-inline: auto;
+  }
+  .my-auto {
+    margin-block: auto;
+  }
+}

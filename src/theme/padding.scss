@@ -1,0 +1,66 @@
+$padding-values: ();
+@for $i from 0 through 50 {
+  $padding-values: map-merge(
+    $padding-values,
+    (
+      $i: $i * 1px,
+    )
+  );
+}
+
+@each $key, $value in $padding-values {
+  .p-#{$key} {
+    padding: $value;
+  }
+  .pt-#{$key} {
+    padding-top: $value;
+  }
+  .pb-#{$key} {
+    padding-bottom: $value;
+  }
+  .pl-#{$key} {
+    padding-left: $value;
+  }
+  .pr-#{$key} {
+    padding-right: $value;
+  }
+  .px-#{$key} {
+    padding-inline: $value;
+  }
+  .py-#{$key} {
+    padding-block: $value;
+  }
+}
+
+$padding-rem-values: ();
+@for $i from 0 through 50 {
+  $padding-rem-values: map-merge(
+    $padding-rem-values,
+    (
+      $i: $i * 0.5rem,
+    )
+  );
+}
+@each $key, $value in $padding-rem-values {
+  .prm-#{$key} {
+    padding: $value;
+  }
+  .prmt-#{$key} {
+    padding-top: $value;
+  }
+  .prmb-#{$key} {
+    padding-bottom: $value;
+  }
+  .prml-#{$key} {
+    padding-left: $value;
+  }
+  .prmr-#{$key} {
+    padding-right: $value;
+  }
+  .prmx-#{$key} {
+    padding-inline: $value;
+  }
+  .prmy-#{$key} {
+    padding-block: $value;
+  }
+}

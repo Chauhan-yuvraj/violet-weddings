@@ -1,0 +1,27 @@
+$text-align-values: (
+  left: left,
+  right: right,
+  center: center,
+  justify: justify,
+  start: start,
+  end: end,
+);
+
+@each $key, $value in $text-align-values {
+  .text-#{$key} {
+    text-align: $value;
+  }
+}
+
+$text-decoration-values: (
+  none: none,
+  underline: underline,
+  overline: overline,
+  "line-through": line-through,
+);
+
+@each $key, $value in $text-decoration-values {
+  .text-decoration-#{$key} {
+    text-decoration: $value;
+  }
+}

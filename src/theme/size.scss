@@ -1,0 +1,21 @@
+// Size Values (rem-based)
+$size-value: ();
+@for $i from 0 through 50 {
+  $size-value: map-merge(
+    $size-value,
+    (
+      $i: $i * 1rem,
+    )
+  );
+}
+
+@each $key, $value in $size-value {
+  .h-#{$key} {
+    height: $value;
+  }
+  .w-#{$key} {
+    width: $value;
+  }
+}
+
+

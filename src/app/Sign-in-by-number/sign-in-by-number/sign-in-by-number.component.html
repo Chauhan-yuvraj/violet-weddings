@@ -1,0 +1,32 @@
+<div class="main d-flex flex-column pos-relative overflow-hidden">
+  <div class="pic pos-relative z-1">
+    <img src="loginPageImages/byNumber.svg" alt="" class="wp-100 hp-100" />
+  </div>
+  <form
+    class="content prm-1 rounded-20 d-flex flex-column pos-relative z-2 justify-between hp-100 justify-between hp-100 gap-2"
+    [formGroup]="form"
+    (ngSubmit)="onSubmit()"
+  >
+    <div class="text-center title-box">
+      <div class="logo">
+        <img src="logo.svg" alt="logo" class="h-2" />
+      </div>
+      <div class="dec weight-600 f-1">Login through your Number</div>
+    </div>
+    <div class="number-box d-flex flex-column gap-1">
+      <label for="usernumber" class="text-left weight-400 f-1"
+        >Mobile Number</label
+      >
+      <input
+        type="number"
+        placeholder="Enter your number"
+        name="usernumber"
+        formControlName="usernumber"
+        class="weight-400 f-1 rounded-15 prm-2"
+      />
+    </div>
+    <div class="btn-box prmb-1 mt-auto">
+      <button type="submit" class="wp-100 prm-2 f-1 rounded-15  ">Continue</button>
+    </div>
+  </form>
+</div>

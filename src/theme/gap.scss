@@ -1,0 +1,21 @@
+$gap-values: ();
+@for $i from 0 through 50 {
+  $gap-values: map-merge(
+    $gap-values,
+    (
+      $i: $i * 1rem,
+    )
+  );
+}
+
+@each $key, $value in $gap-values {
+  .gap-#{$key} {
+    gap: $value;
+  }
+  .row-gap-#{$key} {
+    row-gap: $value;
+  }
+  .column-gap-#{$key} {
+    column-gap: $value;
+  }
+}

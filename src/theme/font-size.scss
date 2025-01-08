@@ -1,0 +1,34 @@
+$font-size: ();
+
+@for $i from 0 through 50 {
+  $font-size: map-merge(
+    $font-size,
+    (
+      $i: $i * 1rem,
+    )
+  );
+}
+
+@each $key, $value in $font-size {
+  .f-#{$key} {
+    font-size: $value;
+  }
+}
+
+$font-weight: ();
+
+@for $i from 0 through 1000 {
+  $font-weight: map-merge(
+    $font-weight,
+    (
+      $i: $i * 1,
+    )
+  );
+}
+
+@each $key, $value in $font-weight {
+  .weight-#{$key} {
+    font-weight: $value;
+  }
+}
+

@@ -1,0 +1,49 @@
+$flex-grow-shrink-values: (
+  0: 0,
+  1: 1,
+  2: 2,
+  3: 3,
+);
+
+@each $key, $value in $flex-grow-shrink-values {
+  .flex-grow-#{$key} {
+    flex-grow: $value;
+  }
+  .flex-shrink-#{$key} {
+    flex-shrink: $value;
+  }
+}
+
+$flex-direction-values: (
+  row: row,
+  "row-reverse": row-reverse,
+  column: column,
+  "column-reverse": column-reverse,
+);
+
+@each $key, $value in $flex-direction-values {
+  .flex-#{$key} {
+    flex-direction: $value;
+  }
+}
+
+$align-justify-values: (
+  start: flex-start,
+  end: flex-end,
+  center: center,
+  between: space-between,
+  around: space-around,
+  evenly: space-evenly,
+);
+
+@each $key, $value in $align-justify-values {
+  .justify-#{$key} {
+    justify-content: $value;
+  }
+  .align-#{$key} {
+    align-items: $value;
+  }
+  .align-self-#{$key} {
+    align-self: $value;
+  }
+}
