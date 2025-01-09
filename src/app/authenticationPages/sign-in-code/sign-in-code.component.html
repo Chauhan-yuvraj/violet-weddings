@@ -1,0 +1,38 @@
+<div class="main pos-relative">
+  <div class="pic">
+    <img
+      src="loginPageImages/signInByCode.svg"
+      alt="poster Image"
+      class="wp-100"
+    />
+  </div>
+  <form action="">
+    <div
+      class="content pos-absolute d-flex flex-column align-center rounded-10 wp-100 px-15 gap-1 py-10"
+    >
+      <div class="title-box d-flex flex-column align-center">
+        <img src="logo.svg" alt="logo" class="h-3" />
+        <div class="otp-text d-flex flex-column align-center">
+          <div class="otp-title weight-600">OTP verification</div>
+          <div class="otp-dec weight-400">
+            Enter the Otp sent to +91 987654321
+          </div>
+        </div>
+      </div>
+      <div class="input-box d-flex justify-center wp-100">
+        <input type="number" class="otp wp-100 py-20 rounded-10 text-center" />
+        <input type="number" class="otp wp-100 py-20 rounded-10 text-center" />
+        <input type="number" class="otp wp-100 py-20 rounded-10 text-center" />
+        <input type="number" class="otp wp-100 py-20 rounded-10 text-center" />
+        <input type="number" class="otp wp-100 py-20 rounded-10 text-center" />
+        <input type="number" class="otp wp-100 py-20 rounded-10 text-center" />
+      </div>
+      <div class="btn-box wp-100 d-flex flex-column gap-1">
+        <button type="submit" class="wp-100 py-15 rounded-15 weight-700" routerLink="/createPassword">
+          Submit
+        </button>
+        <div class="back weight-700 text-center" routerLink="/enterDetails">Back</div>
+      </div>
+    </div>
+  </form>
+</div>

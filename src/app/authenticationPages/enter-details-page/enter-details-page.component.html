@@ -1,0 +1,54 @@
+<div class="main pos-relative">
+  <div class="pic">
+    <img
+      src="loginPageImages/enterTheDetails.svg"
+      alt=""
+      class="wp-100 hp-100"
+    />
+  </div>
+
+  <!-- form  -->
+  <form action="#" method="post" [formGroup]="form" (ngSubmit)="onSubmit()">
+    <div
+      class="content pos-absolute wp-100 d-flex flex-column gap-2 rounded-15 align-center p-15"
+    >
+      <div class="title-box d-flex flex-column align-center">
+        <img src="logo.svg" alt="logo" class="h-3 text-center" />
+        <span class="weight-600">Enter your details</span>
+      </div>
+      <div class="input-box wp-100 d-flex flex-column gap-1">
+        <div class="firstName d-flex flex-column">
+          <label for="firstName" class="weight-400">First Name</label>
+          @if(firstNameInvalid){
+            <p>Enter a valid First Name</p>
+          }
+          <input type="text" name="firstName" class="p-10 rounded-10"  formControlName="firstName" /> 
+        </div>
+        <div class="lastName d-flex flex-column">
+          <label for="lastName" class="weight-400">Last Name</label>
+          @if(lastNameInvalid){
+            <p>Enter a valid Email</p>
+          }
+          <input type="text" name="lastName" class="p-10 rounded-10"
+          formControlName="lastName" />
+        </div>
+        <div class="Email">
+          <div class="email d-flex flex-column">
+            <label for="email" class="weight-400">Email</label>
+            @if(emailInvalid){
+              <p>Enter a Valid Email </p>
+            }
+            <input type="email" name="email" class="p-10 rounded-10" 
+            formControlName="email" />
+          </div>
+        </div>
+      </div>
+      <div class="submit-box d-flex flex-column wp-100 align-center gap-1">
+        <button class="btn wp-100 py-15 rounded-15 weight-700" type="submit">
+          Create Account
+        </button>
+        <div class="back weight-700" routerLink="/signInByNumber" >Back</div>
+      </div>
+    </div>
+  </form>
+</div>

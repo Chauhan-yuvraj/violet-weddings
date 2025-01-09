@@ -1,0 +1,51 @@
+.main {
+  height: 100svh;
+}
+.content {
+  bottom: 0;
+  background-color: white;
+  box-shadow: 0px 0px 12px rgba(0, 0, 0, 0.656);
+  //   border: 2px solid black;
+  font-family: "Mulish";
+  color: #575757;
+}
+.input-box {
+  gap: 0.5rem;
+
+  input {
+    border: none;
+    appearance: none;
+    outline: none;
+    // text-align: center;
+    // font-size: 1.2rem;
+
+    &:active {
+      border: none;
+      outline: none;
+    }
+  }
+}
+button {
+  background-color: #564165;
+  color: white;
+  font-family: "Mulish";
+  appearance: none;
+  border: none;
+  cursor: pointer;
+  transition: all 0.15s ease-in-out;
+  &:hover {
+    box-shadow: 0px 0px 12px black;
+  }
+  &:active {
+    box-shadow: none;
+  }
+}
+.back {
+  color: #564165;
+  font-family: "Mulish";
+  cursor: pointer;
+}
+.input-bar {
+  grid-template-columns: 15% 85%;
+  border: 1px solid #bcbcbc;
+}
