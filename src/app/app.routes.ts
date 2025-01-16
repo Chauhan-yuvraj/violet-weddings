@@ -4,22 +4,31 @@ import { SignInByNumberComponent } from './authenticationPages/sign-in-by-number
 import { EnterDetailsPageComponent } from './authenticationPages/enter-details-page/enter-details-page.component';
 import { CreatePasswordComponent } from './authenticationPages/create-password/create-password.component';
 import { SignInCodeComponent } from './authenticationPages/sign-in-code/sign-in-code.component';
+import { SelectionComponent } from './SelectEvent/selection/selection.component';
 
 export const routes: Routes = [
   {
     path: '',
     component: HomePageComponent,
-  },{
-    path : 'signInByNumber',
-    component : SignInByNumberComponent
-  },{
-    path : 'enterDetails',
-    component : EnterDetailsPageComponent
-  },{
-    path : 'createPassword',
-    component : CreatePasswordComponent
-  },{
-    path : 'signInByCode',
-    component : SignInCodeComponent
-  }
+  },
+  {
+    path: 'signInByNumber',
+    component: SignInByNumberComponent,
+  },
+  {
+    path: 'enterDetails',
+    component: EnterDetailsPageComponent,
+  },
+  {
+    path: 'createPassword',
+    component: CreatePasswordComponent,
+  },
+  {
+    path: 'signInByCode',
+    component: SignInCodeComponent,
+  },
+  {
+    path: 'selection',
+    component: SelectionComponent,
+  },
 ];

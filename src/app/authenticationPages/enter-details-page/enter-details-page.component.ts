@@ -7,7 +7,8 @@ import {
 } from '@angular/forms';
 import { RouterLink } from '@angular/router';
 import { debounceTime, first } from 'rxjs';
-
+import { AuthService } from '../../service/auth.service';
+import { IUser } from '../../interface/user-auth';
 @Component({
   selector: 'app-enter-details-page',
   standalone: true,
@@ -17,6 +18,7 @@ import { debounceTime, first } from 'rxjs';
 })
 export class EnterDetailsPageComponent implements OnInit {
   private destRef = inject(DestroyRef);
+  private service = inject(AuthService);
   form = new FormGroup({
     firstName: new FormControl('', {
       validators: [Validators.required, Validators.minLength(2)],
@@ -52,41 +54,78 @@ export class EnterDetailsPageComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    const savedForm = window.localStorage.getItem('saved-login-form');
-
-    if (savedForm) {
-      const loadForm = JSON.parse(savedForm);
+    console.log("welcome to the component");
+    
+    const userString = localStorage.getItem('user');
+    console.log(userString);
+    
+    if (userString) {
+      const user = JSON.parse(userString);
+      const userId = user.id;
+      console.log("user id :- ",  userId);
 
       this.form.patchValue({
-        firstName: loadForm.firstName,
-        lastName: loadForm.lastName,
-        email: loadForm.email,
+        firstName: user?.firstName,
+        lastName: user?.lastName,
+        email: user?.email,
       });
     }
+    // const savedForm = window.localStorage.getItem('user');
 
-    const subscription = this.form.valueChanges
-      .pipe(debounceTime(500))
-      .subscribe({
-        next: (value) => {
-          window.localStorage.setItem(
-            'saved-login-form',
-            JSON.stringify({
-              firstName: value.firstName,
-              lastName: value.lastName,
-              email: value.email,
-            })
-          );
-        },
-      });
+    // if (savedForm) {
+    //   const loadForm = JSON.parse(savedForm);
 
-    this.destRef.onDestroy(() => {
-      subscription.unsubscribe();
-    });
+    //   this.form.patchValue({
+    //     firstName: loadForm.firstName,
+    //     lastName: loadForm.lastName,
+    //     email: loadForm.email,
+    //   });
+    // }
+
+    // const subscription = this.form.valueChanges
+    //   .pipe(debounceTime(500))
+    //   .subscribe({
+    //     next: (value) => {
+    //       window.localStorage.setItem(
+    //         'user',
+    //         JSON.stringify({
+    //           firstName: value.firstName,
+    //           lastName: value.lastName,
+    //           email: value.email,
+    //         })
+    //       );
+    //     },
+    //   });
+
+    // this.destRef.onDestroy(() => {
+    //   subscription.unsubscribe();
+    // });
+  }
+  clearStorage() {
+    localStorage.removeItem('user');
   }
 
   onSubmit() {
-    const firstName = this.form.value.firstName;
-    const lastName = this.form.value.lastName;
-    const email = this.form.value.email;
+    if (this.form.valid) {
+      const updatedData: Partial<IUser> = {
+        firstName: this.form.value.firstName!,
+        lastName: this.form.value.lastName!,
+        email: this.form.value.email!,
+      };
+      const userId = this.service.user.id;
+      if (userId) {
+        console.log(userId);
+
+        this.service.updateUser(userId, updatedData).subscribe({
+          next: () => {
+            console.log('User Updated');
+            this.clearStorage()
+          },
+          error: (err) => {
+            console.log(err);
+          },
+        });
+      }
+    }
   }
 }

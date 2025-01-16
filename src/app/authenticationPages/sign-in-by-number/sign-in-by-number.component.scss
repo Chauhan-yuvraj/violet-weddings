@@ -12,6 +12,14 @@
 .input-box {
   gap: 0.5rem;
 
+  & div:nth-child(1){
+    p{
+      color: red;
+      font-size: .75rem;
+    }
+  }
+
+
   input {
     border: none;
     appearance: none;
@@ -48,4 +56,11 @@ button {
 .input-bar {
   grid-template-columns: 15% 85%;
   border: 1px solid #bcbcbc;
+}
+.enterPassword{
+  gap: 0.5rem;
+  label{}
+  input{
+    border: 1px solid #bcbcbc;
+  }
 }
